@@ -1,9 +1,3 @@
-## Start frontend
-
-1. #### `$ cd client`
-2. #### `$ yarn install`
-3. #### `$ yarn start`
-
 ## Start backend
 
 1. Create Python virtual environment
