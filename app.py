@@ -6,10 +6,11 @@ from flask_sqlalchemy import SQLAlchemy
 from validator import validate_inputs
 
 is_development = os.environ.get('FLASK_ENV') == 'development'
+db = SQLAlchemy()
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/postgres' if is_development else os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+db.init_app(app)
 cors = CORS(app)
 
 
@@ -118,5 +119,7 @@ def reservationHistory():
 
 
 if __name__ == '__main__':
-    db.create_all()
+    with app.app_context():
+        db.create_all()
+
     app.run(debug=is_development)

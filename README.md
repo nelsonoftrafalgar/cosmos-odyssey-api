@@ -8,5 +8,6 @@
    #### `HOST: localhost`
    #### `DATABASE: postgres`
 4. #### `$ export FLASK_ENV=development`
-5. #### `$ export API_URL=https://cosmos-odyssey.azurewebsites.net/api/v1.0/TravelPrices`
-6. #### `$ python app.py`
+5. #### `$ export DATABASE_URL=<your database url>`
+6. #### `$ export API_URL=https://cosmos-odyssey.azurewebsites.net/api/v1.0/TravelPrices`
+7. #### `$ python app.py`
